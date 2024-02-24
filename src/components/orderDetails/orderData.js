@@ -12,13 +12,13 @@ const OrderData = ({author,img,title,price}) => {
     {
         cart.map((item,index)=>{
             return(
-                item.img===Number(params.orderid)? <div>
+                item.img===Number(params.orderid)? <di key={index}>
                 <h2>Author: {item.author}</h2>
                 <img src={`https://covers.openlibrary.org/b/id/${item.img}-S.jpg`} alt='book-img' />
                 <p>{item.title}</p>
                 <p>Description:- {`This book ${item.title} is written by ${item.author}.`}</p>
                 <span>Price: {index*1000+(index+1)*1000}</span>
-                </div>:null
+                </di>:null
             )
         })
     }

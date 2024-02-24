@@ -4,16 +4,17 @@ import axios from "axios";
 //for author based search
 //https://openlibrary.org/search/authors.json?q=j%20k%20rowling
 export const getBookData = createAsyncThunk("getBookData", async (item) => {
+  console.log("got called")
   try {
-    if (item && item.length > 0) {
+    console.log("item ",item)
+    if (item && item!==undefined) {
       const { data } = await axios.get(
         `https://openlibrary.org/search.json?title=${item}`
       );
       return data;
     } else {
-      const { data } = await axios.get(
-        `https://openlibrary.org/search.json?q=the+lord+of+the+rings`
-      );
+      console.log("called")
+      const { data } = await axios.get('https://openlibrary.org/search.json?title=america');
       return data;
     }
   } catch (err) {
